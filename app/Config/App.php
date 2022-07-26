@@ -37,7 +37,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $indexPage = 'index.php';
+    public $indexPage = '';
 
     /**
      * --------------------------------------------------------------------------
@@ -70,7 +70,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $defaultLocale = 'en';
+    public $defaultLocale = 'ko';
 
     /**
      * --------------------------------------------------------------------------
@@ -109,7 +109,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $appTimezone = 'America/Chicago';
+    public $appTimezone = 'Asia/Seoul';
 
     /**
      * --------------------------------------------------------------------------
@@ -258,7 +258,7 @@ class App extends BaseConfig
      *
      * @deprecated use Config\Cookie::$domain property instead.
      */
-    public $cookieDomain = '';
+    public $cookieDomain = '.aws-test2.newsis.com';
 
     /**
      * --------------------------------------------------------------------------

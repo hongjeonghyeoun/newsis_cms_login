@@ -8,6 +8,8 @@ use CodeIgniter\Validation\FileRules;
 use CodeIgniter\Validation\FormatRules;
 use CodeIgniter\Validation\Rules;
 
+use CodeIgniter\Validation\UserRules;
+
 class Validation extends BaseConfig
 {
     //--------------------------------------------------------------------
@@ -25,6 +27,7 @@ class Validation extends BaseConfig
         FormatRules::class,
         FileRules::class,
         CreditCardRules::class,
+		\App\Validation\UserRules::class,
     ];
 
     /**
@@ -38,7 +41,24 @@ class Validation extends BaseConfig
         'single' => 'CodeIgniter\Validation\Views\single',
     ];
 
+
     //--------------------------------------------------------------------
     // Rules
     //--------------------------------------------------------------------
+	
+		
+	public $signup = [
+        'user_id'       => 'required|trim',
+        'password'      => 'required|validateUser[user_id,password]',
+    ];
+
+    public $signup_errors = [
+        'user_id' => [
+            'required'      =>  '아이디를 입력해 주세요.'
+        ],
+        'password' => [
+            'required'      =>  '패스워드를 입력해 주세요.',
+            'validateUser'  =>  '비밀번호가 같지 않습니다.'
+        ]
+    ];
 }
