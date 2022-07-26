@@ -40,10 +40,10 @@ class NewsisorgModel extends Model
         $builder    =   $this->db->table("newsis_org a")->select('a.org_id,a.org_nm,a.profile_up_org_id')->selectSubquery($subquery, 'up_profile_org_nm');
 */        
    
-        $builder    =   $this->db->table("newsis_org a")->select('a.org_id,a.org_nm,a.profile_up_org_id,b.org_nm as up_profile_org_nm');
-        $builder    ->  join("newsis_org b", "b.org_id = a.profile_up_org_id", 'inner');
-        $builder    ->  where('a.org_id', $buseoID);
-        $builder    ->  where('a.profile_yb', 1);
+        $builder    =   $this->db->table("newsis_org a")->select('a.org_id,a.org_nm,a.profile_up_org_id,b.org_nm as up_profile_org_nm')
+                    ->  join("newsis_org b", "b.org_id = a.profile_up_org_id", 'inner')
+                    ->  where('a.org_id', $buseoID)
+                    ->  where('a.profile_yb', 1);
         $query      =   $builder->get();
         
 		return $query->getRowArray();

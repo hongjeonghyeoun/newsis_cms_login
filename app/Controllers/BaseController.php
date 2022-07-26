@@ -50,7 +50,7 @@ abstract class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
         
-		$this->my_app_path		=	$_ENV['cookie.domain'];
+        $this->my_app_path		=	getenv('cookie.domain');
 
     }
 }
